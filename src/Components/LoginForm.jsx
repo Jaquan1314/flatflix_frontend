@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 class LoginForm extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    email: ""
   }
 
   handleOnChange = event => {
@@ -16,19 +17,34 @@ class LoginForm extends Component {
 
     let user = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
+      email: this.state.email
     }
 
-    fetch('http://localhost:3000/api/v1/login', {
+    let token = localStorage.getItem('token')
+
+    // fetch('http://localhost:3000/api/v1/login', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json'
+    //   },
+    //   body: JSON.stringify(user)
+    // })
+    // .then(resp => resp.json())
+    // .then(data => console.log(data))
+
+    fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        Accept: 'application/json',
+        // Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(user)
     })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
+      .then(r=> r.json())
+      .then(console.log)
   }
 
   render() {
@@ -38,6 +54,8 @@ class LoginForm extends Component {
         <input type='text' name='username' value={this.state.username} onChange={this.handleOnChange} />
         <label>Password:</label>
         <input type='password' name='password' value={this.state.password} onChange={this.handleOnChange} />
+        <label>Email:</label>
+        <input type='email' name='email' value={this.state.email} onChange={this.handleOnChange} />
         <input type='submit' value='Login' />
       </form>
     )
