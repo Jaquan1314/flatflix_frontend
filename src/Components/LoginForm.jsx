@@ -1,18 +1,4 @@
 import React, { Component } from 'react';
-
-// function LoginForm() {
-//   return (
-//     <>
-//       <form>
-//         <input type="text" placeholder="username" />
-//         <input type="text" placeholder="email" />
-//         <input type="password" placeholder="password" />
-//         <button>Login</button>
-//       </form>
-//     </>
-//   );
-// }
-
 class LoginForm extends Component {
   state = {
     username: "",
