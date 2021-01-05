@@ -31,7 +31,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   height: 70px;
-  background: #e50914;
+  background: #0cd2d2;
   color: white;
   text-transform: uppercase;
   padding: 0 32px;
@@ -49,7 +49,7 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background: #f40612;
+    background: #02dcdc;
   }
 
   @media (max-width: 1000px) {
