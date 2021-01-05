@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import LoginForm from "./Components/LoginForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { JumbotronContainer } from "./Container/Jumbotron";
-import { FooterContainer } from "./Container/Footer";
-import { FaqsContainer } from "./Container/Faqs";
+import * as ROUTES from "./Constants/routes";
+import { Home, Browse, Signin, Signup } from "./pages";
 
 class App extends Component {
   state = {
@@ -13,10 +12,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <LoginForm />
-        <JumbotronContainer />
-        <FaqsContainer />
-        <FooterContainer />
+        {/* <LoginForm /> */}
+        <Route exact path={ROUTES.BROWSE}>
+          <Browse />
+        </Route>
+        <Route exact path={ROUTES.SIGN_IN}>
+          <Signin />
+        </Route>
+        <Route exact path={ROUTES.SIGN_UP}>
+          <Signup />
+        </Route>
+        <Route exact path={ROUTES.HOME}>
+          <Home />
+        </Route>
       </Router>
     );
   }
