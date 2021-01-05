@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import LoginForm from "./Components/LoginForm";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import * as ROUTES from "./Constants/routes";
 import { Home, Browse, Signin, Signup } from "./pages";
@@ -12,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* <LoginForm /> */}
         <Route exact path={ROUTES.BROWSE}>
           <Browse />
         </Route>
