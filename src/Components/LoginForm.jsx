@@ -21,7 +21,7 @@ class LoginForm extends Component {
       email: this.state.email
     }
 
-    let token = localStorage.getItem('token')
+    // let token = localStorage.getItem('token')
 
     // fetch('http://localhost:3000/api/v1/login', {
     //   method: 'POST',
@@ -56,7 +56,7 @@ class LoginForm extends Component {
         <input type='password' name='password' value={this.state.password} onChange={this.handleOnChange} />
         <label>Email:</label>
         <input type='email' name='email' value={this.state.email} onChange={this.handleOnChange} />
-        <input type='submit' value='Login' />
+        <button>Create User</button>
       </form>
     )
   }
