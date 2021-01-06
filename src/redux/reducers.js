@@ -1,0 +1,32 @@
+import { combineReducers } from "redux";
+
+const defaultState = {
+  loggedIn: false,
+  user: null,
+  users: [],
+  favorites: [],
+};
+
+const userReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case "SET_USER":
+      return {
+        loggedIn: true,
+        user: { ...action.payload },
+      };
+    case "LOG_OUT":
+      localStorage.clear();
+      return {
+        loggedIn: false,
+        user: {},
+      };
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  userReducer,
+});
+
+export default rootReducer;

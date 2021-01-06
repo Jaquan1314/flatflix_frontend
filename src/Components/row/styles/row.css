@@ -1,6 +1,9 @@
 .row {
-  margin-left: 20px;
-  color: white;
+  line-height: 1.25vw;
+  font-size: 1.1vw;
+  margin-top: 20px;
+  margin-left: 60px;
+  color: rgba(255, 255, 255, 0.863);
 }
 
 .posters {

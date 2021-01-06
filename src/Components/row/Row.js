@@ -10,13 +10,11 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
     async function fetchMovies() {
       const response = await fetch(baseURL + fetchUrl);
       const movies = await response.json();
-      console.log(movies);
+      // console.log(movies);
       setMovies(movies.results);
     }
     fetchMovies();
   }, [fetchUrl]);
-
-  // console.log(movies);
 
   return (
     <div className="row">
