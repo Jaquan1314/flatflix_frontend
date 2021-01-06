@@ -12,7 +12,7 @@ export default function Browse() {
       <Row
         title="Flatflix ORIGINALS"
         isLargeRow
-        fetchUrl={requests.fetchNetflixOriginals}
+        fetchUrl={requests.fetchFlatflixOriginals}
       />
       <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
       <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />

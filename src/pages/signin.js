@@ -80,7 +80,7 @@ export default class Signin extends Component {
               />
               <button className="SignIn">Sign In</button>
               <p className="Text">
-                New to Netflix?{" "}
+                New to Flatflix?{" "}
                 <Link className="SignUpLink" to="/signup">
                   Sign up now.
                 </Link>

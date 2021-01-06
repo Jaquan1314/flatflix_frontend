@@ -1,5 +1,5 @@
 ## Flatflix
 
-A Netflix Clone
+A Flatflix Clone
 
 - Created by Shevaughn & Javaughn Grant
