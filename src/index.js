@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "normalize.css";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
 import { GlobalStyles } from "./global-styles";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -13,8 +14,10 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <GlobalStyles />
-    <App />
+    <BrowserRouter>
+      <GlobalStyles />
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

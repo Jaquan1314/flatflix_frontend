@@ -31,7 +31,6 @@ export default function Banner() {
       }}
     >
       <div className="banner-info">
-        {/* Background img */}
         <h1 className="banner-title">
           {movie?.name || movie?.title || movie?.original_name}
         </h1>
@@ -39,7 +38,7 @@ export default function Banner() {
         <br />
         <div className="banner-btns">
           <button className="banner-playBtn">Play</button>
-          <button className="banner-btn">My List</button>
+          <button className="banner-btn">More Info</button>
         </div>
       </div>
       <div className="bannerFade" />

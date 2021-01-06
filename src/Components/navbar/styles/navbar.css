@@ -1,0 +1,47 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 18px;
+  height: 72px;
+  display: flex;
+  z-index: 1;
+  justify-content: space-between;
+  background: linear-gradient(0deg, rgba(22, 22, 22, 0), rgb(22, 22, 22));
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.nav-blk {
+  background-color: rgb(22, 22, 22);
+}
+
+.nav-logo {
+  position: fixed;
+  left: 55px;
+  width: 110px;
+  object-fit: contain;
+}
+
+.nav-profile {
+  border-radius: 5px;
+  position: fixed;
+  right: 55px;
+  width: 35px;
+  object-fit: contain;
+}
+
+.my-list {
+  font-size: 14px;
+  color: white;
+  padding-top: 10px;
+  position: fixed;
+  flex-direction: flex-start;
+  left: 200px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.my-list:hover {
+  color: rgba(255, 255, 255, 0.753);
+}

@@ -1,6 +1,6 @@
 .row {
   line-height: 1.25vw;
-  font-size: 1.1vw;
+  font-size: 1.02vw;
   margin-top: 20px;
   margin-left: 60px;
   color: rgba(255, 255, 255, 0.863);
@@ -10,7 +10,7 @@
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 .posters::-webkit-scrollbar {
@@ -28,6 +28,7 @@
 
 .poster:hover {
   transform: scale(1.2);
+  z-index: 1;
 }
 
 .largePoster {
@@ -36,4 +37,5 @@
 
 .largePoster:hover {
   transform: scale(1.25);
+  z-index: 1;
 }

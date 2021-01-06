@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { HeaderContainer } from "../Container/Header";
 import { FooterContainer } from "../Container/Footer";
 import { NavLink as Link, Redirect } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { fetchUser } from "../redux/actions";
 import "../Components/form/styles/form.css";
 
 class Signin extends Component {
@@ -19,6 +20,7 @@ class Signin extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.fetchUser(this.state);
   };
 
   render() {
@@ -66,7 +68,13 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUser: (userInfo) => dispatch(fetchUser(userInfo)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Signin);
 
 // let user = {
 //   username: this.state.username,

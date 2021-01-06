@@ -8,7 +8,7 @@ import { FooterContainer } from "../Container/Footer";
 export default function Browse() {
   return (
     <>
-      {/* Nav */}
+      <Navbar />
       <Banner />
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} />

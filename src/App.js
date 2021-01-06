@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { Home, Browse, Signin, Signup } from "./pages";
 import { connect } from "react-redux";
 import { checkLogin } from "./redux/actions";
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <Router>
+        <Switch>
           <Route exact path={ROUTES.BROWSE}>
             <Browse />
           </Route>
@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path={ROUTES.HOME}>
             <Home />
           </Route>
-        </Router>
+        </Switch>
       </div>
     );
   }
