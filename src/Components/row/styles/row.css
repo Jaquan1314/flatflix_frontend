@@ -15,6 +15,7 @@
 }
 
 .poster {
+  border-radius: 5px;
   object-fit: contain;
   width: 100%;
   max-height: 200px;
