@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import { HeaderContainer } from "../Container/Header";
 import { FooterContainer } from "../Container/Footer";
-import { NavLink as Link } from "react-router-dom";
+import { NavLink as Link, Redirect } from "react-router-dom";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { connect } from "react-redux";
+import { login } from "../actions/auth";
+
 import "../Components/form/styles/form.css";
 
+const required = (value) => {
+  if (!value) {
+    return <div>This field is required!</div>;
+  }
+};
 export default class Signin extends Component {
   state = {
     username: "",
