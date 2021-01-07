@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { HeaderContainer } from "../Container/Header";
 import { FooterContainer } from "../Container/Footer";
-import { NavLink as Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { signUserUp } from "../redux/actions";
+import { NavLink as Link, withRouter } from "react-router-dom";
 import "../Components/form/styles/form.css";
 
-export default class Signup extends Component {
+class Signup extends Component {
   state = {
     username: "",
     password: "",
@@ -20,25 +22,10 @@ export default class Signup extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    let user = {
-      username: this.state.username,
-      password: this.state.password,
-      email: this.state.email,
-    };
-
-    // let token = localStorage.getItem("token");
-
-    fetch("http://localhost:3000/api/v1/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        // Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(user),
-    })
-      .then((r) => r.json())
-      .then(console.log);
+    event.preventDefault();
+    this.props.signUserUp(this.state);
+    console.log(this.props.history);
+    this.props.history.replace("/browse");
   };
 
   render() {
@@ -91,3 +78,11 @@ export default class Signup extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUserUp: (userInfo) => dispatch(signUserUp(userInfo)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(withRouter(Signup));

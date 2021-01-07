@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { checkLogin } from "./redux/actions";
 import * as ROUTES from "./Constants/routes";
 import "./styles/main.css";
+// import MovieContainer from "./Container/MovieContainer";
 
 class App extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class App extends Component {
         <Switch>
           <Route exact path={ROUTES.BROWSE}>
             <Browse />
+            {/* <MovieContainer /> */}
           </Route>
           <Route exact path={ROUTES.SIGN_IN}>
             <Signin />

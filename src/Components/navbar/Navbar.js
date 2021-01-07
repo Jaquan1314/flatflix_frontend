@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "../../logo.png";
 import "../navbar/styles/navbar.css";
 import { NavLink as Link } from "react-router-dom";
+import Search from "../../Components/search/Search";
 
 export default function Navbar() {
   const [show, handleShow] = useState(false);
@@ -12,9 +13,9 @@ export default function Navbar() {
         handleShow(true);
       } else handleShow(false);
     });
-    return () => {
-      window.removeEventListener("scroll");
-    };
+    // return () => {
+    //   window.removeEventListener("scroll");
+    // };
   }, []);
 
   return (
@@ -25,6 +26,7 @@ export default function Navbar() {
       <Link className="my-list" to="#">
         My List
       </Link>
+      <Search />
       <img
         className="nav-profile"
         src="../images/profile/blue.png"

@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .main {
   background-color: rgb(22, 22, 22);
 }

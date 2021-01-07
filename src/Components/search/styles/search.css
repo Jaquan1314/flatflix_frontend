@@ -1,0 +1,17 @@
+.searchForm {
+  position: fixed;
+  padding-top: 2px;
+  right: 300px;
+  width: 35px;
+  object-fit: contain;
+}
+
+.searchInput {
+  background-color: #111;
+  outline: none;
+  caret-color: white;
+  padding: 8px;
+  border: 1px solid;
+  border-color: white;
+  color: white;
+}
