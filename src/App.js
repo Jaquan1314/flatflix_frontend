@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import { Home, Browse, Signin, Signup } from "./pages";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { Home, Browse, Signin, Signup, Account, Update } from "./pages";
 import { connect } from "react-redux";
 import { checkLogin } from "./redux/actions";
 import * as ROUTES from "./Constants/routes";
@@ -9,7 +9,13 @@ import "./styles/main.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.checkLogin();
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.props.checkLogin(token);
+      this.props.history.push("/browse");
+    } else {
+      this.props.history.push("/");
+    }
   }
 
   render() {
@@ -19,6 +25,12 @@ class App extends Component {
           <Route exact path={ROUTES.BROWSE}>
             <Browse />
             {/* <MovieContainer /> */}
+          </Route>
+          <Route exact path={ROUTES.ACCOUNT}>
+            <Account />
+          </Route>
+          <Route exact path={ROUTES.UPDATE_USER}>
+            <Update />
           </Route>
           <Route exact path={ROUTES.SIGN_IN}>
             <Signin />
@@ -43,8 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    checkLogin: () => dispatch(checkLogin()),
+    checkLogin: (token) => dispatch(checkLogin(token)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../logo.png";
-import "../navbar/styles/navbar.css";
+import logo from "../../../logo.png";
+import "../../navbar/styles/navbar.css";
 import { NavLink as Link, withRouter } from "react-router-dom";
-import { logUserOut } from "../../redux/actions";
+import { logUserOut } from "../../../redux/actions";
 import { connect } from "react-redux";
-import Search from "../../Components/search/Search";
 
 function Navbar(props) {
   const [show, handleShow] = useState(false);
@@ -31,10 +30,6 @@ function Navbar(props) {
       <Link to="/browse">
         <img className="nav-logo" src={logo} alt="Flatflix" />
       </Link>
-      <Link className="my-list" to="#">
-        My List
-      </Link>
-      <Search />
       <div className="dropdown">
         <img
           className="nav-profile"
@@ -55,10 +50,7 @@ function Navbar(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    // state,
-    userReducer: state.userReducer,
-  };
+  return { userReducer: state.userReducer };
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -20,6 +20,11 @@ const userReducer = (state = defaultState, action) => {
         loggedIn: false,
         user: {},
       };
+    case "UPDATE_USER":
+      return {
+        loggedIn: true,
+        user: { ...action.payload },
+      };
     default:
       return state;
   }

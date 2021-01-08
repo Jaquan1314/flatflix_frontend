@@ -1,4 +1,5 @@
 const setUser = (payload) => ({ type: "SET_USER", payload });
+const updateUser = (payload) => ({ type: "UPDATE_USER", payload });
 
 export const logUserOut = () => ({ type: "LOG_OUT" });
 // Methods
@@ -20,6 +21,24 @@ export const fetchUser = (userInfo) => (dispatch) => {
     });
 };
 
+export const editUser = (updatedInfo) => (dispatch) => {
+  fetch(`http://localhost:3000/api/v1/users/${updatedInfo.userId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+    body: JSON.stringify(updatedInfo),
+  })
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      localStorage.setItem("token", data.jwt);
+      dispatch(updateUser(data));
+    });
+};
+
 export const signUserUp = (userInfo) => (dispatch) => {
   fetch("http://localhost:3000/api/v1/users", {
     method: "POST",
@@ -37,12 +56,12 @@ export const signUserUp = (userInfo) => (dispatch) => {
     });
 };
 
-export const checkLogin = () => (dispatch) => {
+export const checkLogin = (token) => (dispatch) => {
   fetch("http://localhost:3000/api/v1/profile", {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${token}`,
     },
   })
     .then((r) => r.json())
