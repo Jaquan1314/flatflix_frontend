@@ -39,6 +39,23 @@ export const editUser = (updatedInfo) => (dispatch) => {
     });
 };
 
+export const deleteUser = (userId) => (dispatch) => {
+  fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  })
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      localStorage.clear();
+      dispatch({ type: "DELETE_USER" });
+    });
+};
+
 export const signUserUp = (userInfo) => (dispatch) => {
   fetch("http://localhost:3000/api/v1/users", {
     method: "POST",

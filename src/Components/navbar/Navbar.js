@@ -22,8 +22,11 @@ function Navbar(props) {
 
   const handleSignOut = () => {
     console.log(props);
-    props.logUserOut();
+    localStorage.clear();
     props.history.push("/");
+    props.userReducer.loggedIn = false;
+    props.userReducer.user = {};
+    props.logUserOut();
   };
 
   return (

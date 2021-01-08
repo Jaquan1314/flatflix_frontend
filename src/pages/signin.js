@@ -20,9 +20,16 @@ class Signin extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const token = localStorage.getItem("token");
     this.props.fetchUser(this.state);
     console.log(this.props.history);
-    this.props.history.replace("/browse");
+    // if (token) {
+    this.props.history.push("/browse");
+    // } else {
+    //   // alert("Invalid! Try again");
+    //   localStorage.clear();
+    //   this.props.history.push("/");
+    // }
   };
 
   render() {

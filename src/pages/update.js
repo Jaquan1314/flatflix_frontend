@@ -15,6 +15,8 @@ class Update extends Component {
 
   onUserEditSubmit = (e) => {
     e.preventDefault();
+    // localStorage.setItem("token", this.state.userId);
+    this.props.history.replace("/account");
     this.props.editUser(this.state);
   };
 
@@ -31,7 +33,14 @@ class Update extends Component {
           <div className="updateForm">
             <form onSubmit={this.onUserEditSubmit}>
               <h1>Update Account</h1>
-              <h3> - Email - </h3>
+              <hr />
+              <img
+                className="profileIcon"
+                src="../../images/profile/blue.png"
+                alt="profile-img"
+              />
+              <hr />
+              <h3 className="email-class"> - Email - </h3>
               <input
                 className="emailInput"
                 name="email"
@@ -50,11 +59,11 @@ class Update extends Component {
                 value={this.state.username}
                 onChange={this.onUserEdit}
               />
-              {/* <Link to="/account"> */}
               <button id="saveBtn">Save</button>
-              {/* </Link> */}
             </form>
-            <button id="cancelBtn">Cancel</button>
+            <Link to="/account">
+              <button id="cancelBtn">Cancel</button>
+            </Link>
           </div>
           <hr />
           <FooterContainer />

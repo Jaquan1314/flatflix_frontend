@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { checkLogin } from "./redux/actions";
 import * as ROUTES from "./Constants/routes";
 import "./styles/main.css";
+import ProtectedRoute from "./ProtectedRoute";
 // import MovieContainer from "./Container/MovieContainer";
 
 class App extends Component {
@@ -22,25 +23,17 @@ class App extends Component {
     return (
       <div className="main">
         <Switch>
-          <Route exact path={ROUTES.BROWSE}>
-            <Browse />
-            {/* <MovieContainer /> */}
-          </Route>
-          <Route exact path={ROUTES.ACCOUNT}>
-            <Account />
-          </Route>
-          <Route exact path={ROUTES.UPDATE_USER}>
-            <Update />
-          </Route>
+          <ProtectedRoute exact path={ROUTES.BROWSE} component={Browse} />
+          <ProtectedRoute exact path={ROUTES.ACCOUNT} component={Account} />
+          <ProtectedRoute exact path={ROUTES.UPDATE_USER} component={Update} />
           <Route exact path={ROUTES.SIGN_IN}>
             <Signin />
           </Route>
           <Route exact path={ROUTES.SIGN_UP}>
             <Signup />
           </Route>
-          <Route exact path={ROUTES.HOME}>
-            <Home />
-          </Route>
+          <Route exact path={ROUTES.HOME} component={Home} />
+          <ProtectedRoute component={Home} />
         </Switch>
       </div>
     );
@@ -60,3 +53,25 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
+{
+  /* <Switch>
+<Route exact path={ROUTES.BROWSE}>
+  <Browse />
+</Route>
+<Route exact path={ROUTES.ACCOUNT}>
+  <Account />
+</Route>
+<Route exact path={ROUTES.UPDATE_USER}>
+  <Update />
+</Route>
+<Route exact path={ROUTES.SIGN_IN}>
+  <Signin />
+</Route>
+<Route exact path={ROUTES.SIGN_UP}>
+  <Signup />
+</Route>
+<Route exact path={ROUTES.HOME}>
+  <Home />
+</Route>
+</Switch> */
+}

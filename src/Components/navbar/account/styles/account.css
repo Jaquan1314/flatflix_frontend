@@ -8,6 +8,9 @@
   width: 100%;
 }
 
+.updateBackground a {
+  text-decoration: none;
+}
 .updateForm {
   margin-top: 70px;
   text-align: center;
@@ -49,12 +52,6 @@
   border: 0;
 }
 
-.updateForm h1 {
-  font-size: 40px;
-  margin-right: 100px;
-  margin-bottom: 50px;
-}
-
 .updateForm h3 {
   margin-bottom: 15px;
 }
@@ -78,8 +75,140 @@
   font-weight: 500;
 }
 
+.email-class {
+  margin-top: 15px;
+}
+
+.updateForm hr {
+  width: 45%;
+  margin-left: 600px;
+  margin-top: -20px;
+}
+
 hr {
   height: 0;
   width: 100%;
   border-top: 1px solid #e5e5e5;
+}
+
+.profileIcon {
+  border-radius: 40px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.account {
+  text-align: center;
+}
+
+.account h1 {
+  margin-top: 80px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 600px;
+}
+
+.updateForm h1 {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 600px;
+  margin-right: 100px;
+  margin-bottom: 50px;
+}
+
+.account-details {
+  font-size: 30px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.account hr {
+  width: 45%;
+  margin-left: 600px;
+}
+
+.accountBackground {
+  display: block;
+  background-color: rgb(247, 247, 247);
+  position: absolute;
+  top: 70px;
+  /* height: 100vh; */
+  /* bottom: 0px; */
+  width: 100%;
+}
+
+.accountContent .username {
+  padding-bottom: 20px;
+}
+
+.membership {
+  display: block;
+  margin-left: 600px;
+  margin-top: 20px;
+}
+
+.membership header {
+  position: relative;
+  display: block;
+  color: #757575;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 10px 10px 0;
+}
+
+.membership button {
+  width: 200px;
+  position: relative;
+  display: block;
+  margin: 20px 10px 10px 0;
+  bottom: 27px;
+  padding: 12px 2em;
+  line-height: 1em;
+  box-sizing: border-box;
+  background-color: #e6e6e6;
+  background-image: linear-gradient(to bottom, #e6e6e6, #ddd);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  border-radius: 2px;
+  border: 0;
+}
+
+b {
+  font-size: 20px;
+}
+
+.free99hr {
+  margin-top: 30px;
+  margin-bottom: 200px;
+}
+
+.updateBtn,
+.deleteBtn {
+  color: white;
+  width: 200px;
+  bottom: 27px;
+  padding: 12px 2em;
+  line-height: 1em;
+  background-color: #0f84fa;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  border-radius: 5px;
+  border: 0;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.deleteBtn {
+  margin-left: 30px;
+  background-color: #2e3536;
 }

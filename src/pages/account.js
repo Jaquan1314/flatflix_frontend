@@ -3,9 +3,14 @@ import Navbar from "../Components/navbar/account/Navbar";
 import { FooterContainer } from "../Container/Footer";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import { editUser } from "../redux/actions";
+import { editUser, deleteUser } from "../redux/actions";
 
 class Account extends Component {
+  deleteHandler = () => {
+    this.props.history.replace("/");
+    this.props.deleteUser(this.props.userReducer.user.id);
+  };
+
   render() {
     return (
       <>
@@ -23,15 +28,18 @@ class Account extends Component {
               <hr />
               <h2 className="account-details">Update Account</h2>
               <h3 className="email">
-                email: {this.props.userReducer.user.email}
+                Email: {this.props.userReducer.user.email}
               </h3>
               <br />
               <h3 className="username">
-                username: {this.props.userReducer.user.username}
+                Username: {this.props.userReducer.user.username}
               </h3>
               <Link to="/account/update">
                 <button className="updateBtn">Edit Account</button>
               </Link>
+              <button className="deleteBtn" onClick={this.deleteHandler}>
+                Delete Account
+              </button>
               <hr />
               <div className="membership">
                 <header>PLAN DETAILS</header>
@@ -60,6 +68,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editUser: (updatedInfo) => dispatch(editUser(updatedInfo)),
+    deleteUser: (userId) => dispatch(deleteUser(userId)),
   };
 };
 
