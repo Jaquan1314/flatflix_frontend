@@ -1,6 +1,6 @@
 # Flatflix
 
-A Flatflix Clone
+A Netflix Clone
 
 ## Demo
 ![Flatflix gif](flatflix-gif.gif)  
